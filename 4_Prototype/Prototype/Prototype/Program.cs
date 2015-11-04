@@ -23,6 +23,12 @@ namespace Prototype
 
             }
 
+            // -----------
+            // using callbacks:
+            Spawner ghostCallbackSpawner = new Spawner(fastGhost.SpawnGhost);
+            Ghost g = (Ghost) ghostCallbackSpawner.SpawnMonsterViaCallback();
+            g.PrintStats();
+
             Console.ReadLine();
 
         }

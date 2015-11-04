@@ -22,5 +22,12 @@ namespace Prototype
         {
             Console.WriteLine("Speed: " + this.speed + "; Health: " + this.health);
         }
+
+        // ---------------------------------
+        // using callbacks:
+        public Monster SpawnGhost()
+        {
+            return new Ghost(this.health, this.speed);
+        }
     }
 }
