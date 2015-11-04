@@ -10,7 +10,7 @@ namespace Prototype
     {
         static void Main(string[] args)
         {
-            Ghost fastGhost = new Ghost(5, 10);
+            Ghost fastGhost = new Ghost("FastGhost", 5, 10);
             Spawner Spawner = new Spawner(fastGhost);
 
             List<Ghost> fastGhosts = new List<Ghost>();
@@ -28,6 +28,19 @@ namespace Prototype
             Spawner ghostCallbackSpawner = new Spawner(fastGhost.SpawnGhost);
             Ghost g = (Ghost) ghostCallbackSpawner.SpawnMonsterViaCallback();
             g.PrintStats();
+
+            // -----------
+            // generic test (similar to C++ templates):
+            GenericTest<int> _tInt = new GenericTest<int>(5);
+            GenericTest<string> _tString = new GenericTest<string>("hello");
+            _tInt.Write();
+            _tString.Write();
+
+            SpawnerFor<Ghost> spawnerForGhost = new SpawnerFor<Ghost>();
+            Ghost gg = spawnerForGhost.SpawnMonster();
+            gg.PrintStats();
+
+            
 
             Console.ReadLine();
 
