@@ -16,8 +16,10 @@ namespace State
 
         public void ChangeState(IPlayerState state)
         {
+            _state = null; // delete old state (not sure if this works?)
+
             _state = state;
-            _graphics = state.Graphics;
+            _state.EnterState(this);
         }
 
         public void HandleInput(Input input)
@@ -28,7 +30,7 @@ namespace State
                 _state = null; // delete old state (not sure if this works?)
 
                 _state = temp;
-                _graphics = _state.Graphics;
+                _state.EnterState(this);
             }
 
             if (input == Input.Idle)
@@ -55,36 +57,15 @@ namespace State
 
         public string Name { get; }
 
+        public void SetGraphics(string graphics)
+        {
+            _graphics = graphics;
+        }
+
         public void SuperBomb()
         {
             Console.WriteLine("*Super Bomb!*");
         }
 
-        public void Jump()
-        {
-            Console.WriteLine(Name + " is jumping!");
-
-        }
-
-        public void Crouch()
-        {
-            Console.WriteLine("*Showing crouching grahic*");
-
-
-        }
-
-        public void Reload()
-        {
-            Console.WriteLine(Name + " is reloading!");
-
-
-        }
-
-        public void Shoot()
-        {
-            Console.WriteLine(Name + " is shooting!");
-
-
-        }
     }
 }

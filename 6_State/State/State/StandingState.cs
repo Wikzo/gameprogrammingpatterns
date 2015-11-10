@@ -20,11 +20,19 @@ namespace State
             Console.WriteLine("Standing...");
         }
 
+        public void ExitState(Player p)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TimePass(int time)
         {
         }
 
-        public string Graphics { get { return "IMAGE_STANDING"; } }
+        public void EnterState(Player p)
+        {
+            p.SetGraphics("IMAGE_STANDING");
+        }
 
     }
 }

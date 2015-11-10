@@ -41,11 +41,19 @@ namespace State
             }
         }
 
+        public void ExitState(Player p)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TimePass(int time)
         {
             _chargeTime = time;
         }
 
-        public string Graphics { get { return "IMAGE_DUCKING"; } }
+        public void EnterState(Player p)
+        {
+            p.SetGraphics("IMAGE_DUCKING");
+        }
     }
 }

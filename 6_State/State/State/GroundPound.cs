@@ -23,12 +23,20 @@
                 p.ChangeState(new StandingState());
         }
 
+        public void ExitState(Player p)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void TimePass(int time)
         {
             
         }
 
-        public string Graphics { get { return "IMAGE_GROUNDPOUND"; } }
+        public void EnterState(Player p)
+        {
+            p.SetGraphics("IMAGE_GROUNDPOUND");
+        }
 
     }
 }

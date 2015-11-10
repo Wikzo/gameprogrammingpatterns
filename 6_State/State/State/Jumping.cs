@@ -29,12 +29,21 @@
                 p.ChangeState(new StandingState());
         }
 
+        public void EnterState(Player p)
+        {
+            p.SetGraphics("IMAGE_JUMPING");
+        }
+
+        public void ExitState(Player p)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void TimePass(int time)
         {
             _airTime += time;
         }
 
-        public string Graphics { get { return "IMAGE_JUMPING"; } }
 
     }
 }
