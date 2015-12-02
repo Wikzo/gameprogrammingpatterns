@@ -1,5 +1,8 @@
 ﻿using System;
 
+
+// "Receiver"
+
 public class Player
 {
     public Player(string name)

@@ -1,5 +1,7 @@
 ﻿using System;
 
+// "Invoker"
+
 public static class InputHandler
 {
     public static ICommand HandleInput()

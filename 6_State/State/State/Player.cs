@@ -24,11 +24,11 @@ namespace State
 
         public void HandleInput(Input input)
         {
-            if (_state != null)
-            {
-                IPlayerState temp = _state.HandleInput(this, input);
-                _state = null; // delete old state (not sure if this works?)
+            IPlayerState temp = _state.HandleInput(this, input);
 
+            if (temp != _state)
+            {
+                _state = null; // delete old state (not sure if this works?)
                 _state = temp;
                 _state.EnterState(this);
             }

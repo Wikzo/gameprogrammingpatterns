@@ -31,7 +31,9 @@ namespace State
 
         public void EnterState(Player p)
         {
-            p.SetGraphics("IMAGE_STANDING");
+            Random r = new Random();
+            int a = r.Next(10);
+            p.SetGraphics("IMAGE_STANDING " + a);
         }
 
     }
