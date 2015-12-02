@@ -25,7 +25,6 @@
 
         public void ExitState(Player p)
         {
-            throw new System.NotImplementedException();
         }
 
         public void TimePass(int time)

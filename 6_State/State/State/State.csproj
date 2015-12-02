@@ -46,6 +46,7 @@
     <Compile Include="GroundPound.cs" />
     <Compile Include="JumpDiving.cs" />
     <Compile Include="Jumping.cs" />
+    <Compile Include="ShootingState.cs" />
     <Compile Include="StandingState.cs" />
     <Compile Include="DuckingState.cs" />
     <Compile Include="Input.cs" />

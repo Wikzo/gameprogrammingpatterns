@@ -18,6 +18,9 @@
             if (input == Input.DPad_Down)
                 return new GroundPound();
 
+            if (input == Input.Shooting)
+                return new ShootingState(this);
+
             return this;
         }
 
@@ -36,7 +39,6 @@
 
         public void ExitState(Player p)
         {
-            throw new System.NotImplementedException();
         }
 
         public void TimePass(int time)

@@ -43,7 +43,6 @@ namespace State
 
         public void ExitState(Player p)
         {
-            throw new NotImplementedException();
         }
 
         public void TimePass(int time)

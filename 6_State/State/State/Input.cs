@@ -6,6 +6,7 @@
         DPad_Up,
         JumpButton_Down,
         JumpButton_Up,
+        Shooting,
         Idle,
         TimeFastForward,
         Quit,

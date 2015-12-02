@@ -16,6 +16,7 @@ namespace State
 
         public void ChangeState(IPlayerState state)
         {
+            _state.ExitState(this);
             _state = null; // delete old state (not sure if this works?)
 
             _state = state;
@@ -28,6 +29,7 @@ namespace State
 
             if (temp != _state)
             {
+                _state.ExitState(this);
                 _state = null; // delete old state (not sure if this works?)
                 _state = temp;
                 _state.EnterState(this);

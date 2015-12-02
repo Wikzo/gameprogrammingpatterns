@@ -10,6 +10,8 @@ namespace State
                return new Jumping();
             if (input == Input.DPad_Down)
                 return new DuckingState();
+            if (input == Input.Shooting)
+                return new ShootingState(this);
 
             return this;
 
@@ -22,7 +24,6 @@ namespace State
 
         public void ExitState(Player p)
         {
-            throw new NotImplementedException();
         }
 
         public void TimePass(int time)

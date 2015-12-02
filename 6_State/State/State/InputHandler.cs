@@ -10,7 +10,7 @@ namespace State
     {
         public static Input HandleInput()
         {
-            Console.WriteLine("Possible input: d_down, d_up, jump_down, jump_up, idle, time\n>");
+            Console.WriteLine("Possible input: d_down, d_up, jump_down, jump_up, shoot, idle, time\n>");
 
             String input = Console.ReadLine();
 
@@ -20,6 +20,7 @@ namespace State
             if (input.ToLower() == "d_up") return Input.DPad_Up;
             if (input.ToLower() == "jump_down") return Input.JumpButton_Down;
             if (input.ToLower() == "jump_up") return Input.JumpButton_Up;
+            if (input.ToLower() == "shoot") return Input.Shooting;
             if (input.ToLower() == "idle") return Input.Idle;
             if (input.ToLower() == "time") return Input.TimeFastForward;
 
