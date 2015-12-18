@@ -11,10 +11,12 @@
             Facing = actor;
         }
 
-        public override void Update()
+        public override string Update()
         {
-            if (Slapped)
-                Facing.Slap(this);
+            if (CurrentSlapped)
+                return Facing.Slap(this);
+            else
+                return null;
         }
     }
 }

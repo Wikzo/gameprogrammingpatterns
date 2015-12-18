@@ -12,12 +12,11 @@ public enum Approach
 
 namespace DoubleBuffer
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+       public static void Main(string[] args)
         {
-
-            Stage stage = new Stage();
+            Stage stage = new Stage(3);
 
             Comedian Harry = new Comedian("Harry");
             Comedian Baldy = new Comedian("Baldy");
@@ -26,7 +25,6 @@ namespace DoubleBuffer
             Harry.Face(Baldy);
             Baldy.Face(Chump);
             Chump.Face(Harry);
-
 
             Approach approach = Approach.ApproachTwo;
 
@@ -46,10 +44,13 @@ namespace DoubleBuffer
                     throw new ArgumentOutOfRangeException();
             }
 
-            Harry.Slap();
-            stage.Update();
-            stage.Update();
-            stage.Update();
+            Console.WriteLine(Harry.Slap("somebody"));
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(stage.Update(i));
+
+            }
 
             Console.ReadLine();
         }

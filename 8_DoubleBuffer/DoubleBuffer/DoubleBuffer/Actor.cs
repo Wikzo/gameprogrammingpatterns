@@ -4,32 +4,35 @@ namespace DoubleBuffer
 {
     public abstract class Actor
     {
-        public bool Slapped { get; private set; }
+        public bool CurrentSlapped { get; private set; }
+        public bool NextSlapped { get; private set; }
 
         public string Name { get; }
 
         public Actor(String name)
         {
-            Slapped = false;
+            CurrentSlapped = false;
             Name = name;
         }
 
-        public abstract void Update();
+        public abstract string Update();
 
-        public void Reset()
+        public void Swap() // buffer like in graphics: one we see and one that is updated in the background
         {
-            Slapped = false;
+            CurrentSlapped = NextSlapped; // swap the buffer
+
+            NextSlapped = false; // clear the new 'next' buffer
         }
 
-        protected internal void Slap(Actor slapper)
+        public string Slap(Actor slapper)
         {
-            Slapped = true;
-            Console.WriteLine(String.Format("{0} was slapped by {1}", Name, slapper.Name));
+            NextSlapped = true;
+            return String.Format("{0} was slapped by {1}\n", Name, slapper.Name);
         }
 
-        protected internal void Slap()
+        public string Slap(string name)
         {
-            Slap(new Comedian("Somebody secret"));
+            return Slap(new Comedian(name));
         }
 
 

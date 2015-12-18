@@ -4,22 +4,37 @@ namespace DoubleBuffer
 {
     public class Stage
     {
-        private const int NUM_ACTORS = 3;
-        private Actor[] _actors = new Actor[NUM_ACTORS];
+        private Actor[] _actors;
+        private int _numberOfActors = 0;
+
+        public Stage(int numberOfActors)
+        {
+            _actors = new Actor[numberOfActors];
+            _numberOfActors = numberOfActors;
+        }
 
         public void AddActor(Actor a, int index)
         {
             _actors[index] = a;
         }
 
-        public void Update()
+        public string Update(int frame)
         {
-            Console.WriteLine("\n--------Updating stage--------\n");
-            for (int i = 0; i < NUM_ACTORS; i++)
+            string slaps = "";
+            //slaps = String.Format("\nFrame {0}:\n", frame);
+           // Console.WriteLine(String.Format("\n*Updating stage (frame {0}):", frame));
+            for (int i = 0; i < _numberOfActors; i++)
             {
-                _actors[i].Update();
-                _actors[i].Reset();
+                slaps += _actors[i].Update();
             }
+
+            //Console.WriteLine("\n--------Swapping stage--------\n");
+            for (int i = 0; i < _numberOfActors; i++)
+            {
+                _actors[i].Swap();
+            }
+
+            return slaps;
         }
     }
 }
