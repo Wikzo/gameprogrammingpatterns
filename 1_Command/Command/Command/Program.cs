@@ -18,7 +18,7 @@ namespace Command
             if (command != null)
                 command.Execute(p);
 
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }
