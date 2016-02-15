@@ -4,9 +4,16 @@ namespace ByteCode
 {
     internal class Sound
     {
+        private string _name;
+
+        public Sound(string name)
+        {
+            _name = name;
+        }
+
         public void Play()
         {
-            Console.WriteLine("Playing sound");
+            Console.WriteLine(string.Format("Playing sound {0}", this._name));
         }
     }
 }

@@ -13,7 +13,20 @@ namespace ByteCode
             VM virtualMachine = new VM();
 
             char[] byteCode = new[]
-            {(char)Instructions.INST_SET_HEALTH, (char)Instructions.INST_PLAY_SOUND, (char)Instructions.INST_SET_WISDOM};
+            {
+                // set wizard 0's health to 100
+                (char)Instructions.INST_LITERAL,
+                (char)0, // select wizard 0
+                (char)Instructions.INST_LITERAL,
+                (char)100, // set health to 100
+                (char)Instructions.INST_SET_HEALTH,
+
+                // play sound 2
+                (char)Instructions.INST_LITERAL,
+                (char)2,
+                (char)Instructions.INST_PLAY_SOUND
+            };
+
             virtualMachine.Interpret(byteCode, byteCode.Length);
 
             Console.ReadLine();
