@@ -2,7 +2,7 @@
 
 namespace ByteCode
 {
-    internal class Wizard
+    public class Wizard
     {
         private int _health;
         private int _wisdom;

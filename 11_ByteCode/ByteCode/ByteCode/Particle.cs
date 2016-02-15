@@ -2,7 +2,7 @@
 
 namespace ByteCode
 {
-    internal class Particle
+    public class Particle
     {
         private string _name;
 

@@ -2,7 +2,7 @@
 
 namespace ByteCode
 {
-    internal class Sound
+    public class Sound
     {
         private string _name;
 
