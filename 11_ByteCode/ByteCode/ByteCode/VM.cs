@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 namespace ByteCode
 {
+    // these instructions would be parsed from a GUI or text program that is user-friendly for non-technical people
     public enum Instructions
     {
         SET_HEALTH = 0x00,
@@ -24,7 +25,7 @@ namespace ByteCode
 
     public class VM
     {
-        private static int MAX_STACK = 128;
+        private static int MAX_STACK = 128; // to control how much memory is used (security)
         private int _stackIndex;
         private int[] _stack = new int[MAX_STACK];
 
