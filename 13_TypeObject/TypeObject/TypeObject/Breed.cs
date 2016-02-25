@@ -2,9 +2,12 @@
 {
     public class Breed
     {
+        public Breed Parent { get; set; }
+        public string Name = "NA";
+
         private int _startingHealth;
         private string _attack;
-        private Breed _parent;
+
 
         private bool _allowForDynamicParentChanges = true;
 
@@ -12,13 +15,13 @@
         {
             // can store parent field to allow for modifications during runtime
             if (_allowForDynamicParentChanges)
-                _parent = parent;
+                Parent = parent;
             else if (!_allowForDynamicParentChanges)
             {
                 if (parent != null)
                 {
-                    if (_startingHealth == 0) _startingHealth = _parent.StartingHealth;
-                    if (_attack == null) _attack = _parent.Attack;
+                    if (_startingHealth == 0) _startingHealth = Parent.StartingHealth;
+                    if (_attack == null) _attack = Parent.Attack;
                 }
             }
 
@@ -39,14 +42,15 @@
                 // this allows for dynamical modifications but also takes more memory, since it has to store the parent
                 if (_allowForDynamicParentChanges)
                 {
-                    if (_parent == null || _startingHealth != 0)
+                    if (Parent == null || _startingHealth != 0)
                         return _startingHealth;
                     else
-                        return _parent.StartingHealth;
+                        return Parent.StartingHealth;
                 }
                 else
                     return _startingHealth;
             }
+            set { _startingHealth = value; }
         }
 
         public string Attack
@@ -57,14 +61,16 @@
                 // this allows for dynamical modifications but also takes more memory, since it has to store the parent
                 if (_allowForDynamicParentChanges)
                 {
-                    if (_parent == null || _attack != null)
+                    if (Parent == null || _attack != null)
                         return _attack;
                     else
-                        return _parent.Attack;
+                        return Parent.Attack;
                 }
                 else
                     return _attack;
             }
+            set { _attack = value; }
+
         }
     }
 }

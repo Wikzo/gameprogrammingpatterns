@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace TypeObject
 {
     class Program
     {
+        private static List<Monster> MonstersCreatedViaJSON;
+
+
         static void Main(string[] args)
         {
             /////////////////////////////////////////////////////////////////////
@@ -31,7 +37,8 @@ namespace TypeObject
             /////////////////////////////////////////////////////////////////////
             // using inheritance to create base monster breed
             Breed wizardBreed = new Breed(null, 5, "Generic magic attack");
-            Breed fireWizardBreed = new Breed(wizardBreed, 0, "Fire magic attack"); // passing in 0: inherits from parent
+            Breed fireWizardBreed = new Breed(wizardBreed, 0, "Fire magic attack");
+            // passing in 0: inherits from parent
             Breed spellCasterWizardBreed = new Breed(wizardBreed, 8, null);
 
             Monster m1 = wizardBreed.CreateMonster("M1");
@@ -44,7 +51,57 @@ namespace TypeObject
 
             /////////////////////////////////////////////////////////////////////
 
+            /////////////////////////////////////////////////////////////////////
+            // created dynamically via json file
+            Console.WriteLine("\nCreated via JSON file:");
+
+            ReadJsonData("BreedJson.json");
+            foreach (var m in MonstersCreatedViaJSON)
+                Console.WriteLine(m.ToString());
+
+            /////////////////////////////////////////////////////////////////////
+
             Console.ReadLine();
+        }
+
+
+        public static void ReadJsonData(String path)
+        {
+            // using http://www.newtonsoft.com/json/help/html/Introduction.htm
+
+            // remember to put the "BreedJson.json" file in bin/Debug folder!
+
+            try
+            {
+                // Open the text file using a stream reader.
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string lines = sr.ReadToEnd();
+                    MonstersCreatedViaJSON = new List<Monster>(CreateMonstersFromJsonArray(lines));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        private static List<Monster> CreateMonstersFromJsonArray(string jsonString)
+        {
+            // NOTE: does not work with object reference to parents
+
+            List<Monster> monsterList = new List<Monster>();
+            JArray jArray = JArray.Parse(jsonString);
+
+            foreach (var a in jArray)
+            {
+                Breed b = (Breed)a.ToObject(typeof(Breed));
+                Monster m = b.CreateMonster(b.Name);
+                monsterList.Add(m);
+            }
+
+            return monsterList;
         }
     }
 }

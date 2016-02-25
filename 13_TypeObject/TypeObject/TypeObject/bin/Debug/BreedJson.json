@@ -1,0 +1,22 @@
+[
+    {
+    	"Name": "Wizard",
+        "StartingHealth": 25,
+        "Attack": "Wizard hits you!"
+    },
+    {
+    	"Name": "Fire Wizard",
+        "StartingHealth": 27,
+        "Attack": "Wizard burns you with fire spell"
+    },
+    {
+    	"Name": "Water Wizard",
+        "StartingHealth": 0,
+        "Attack": "Wizard splashes water in your face!"
+    },
+    {
+    	"Name": "Robot Wizard",
+        "StartingHealth": 100,
+        "Attack": "Zaps you with a laser!"
+    }
+]
