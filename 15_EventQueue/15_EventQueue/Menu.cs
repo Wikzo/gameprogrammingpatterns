@@ -14,22 +14,22 @@ namespace _15_EventQueue
         private const int SOUND_DESELECT = 5;
         private const int SOUND_EXIT = 3;
 
-        public void OnStart()
+        public void OnStart(int volume)
         {
             Console.WriteLine("*Event: Menu button START pressed*");
-            Audio.PlaySound(SOUND_START, 10);
+            Audio.PlaySound(SOUND_START, volume);
         }
 
         public void OnDeselect()
         {
             Console.WriteLine("*Event: Menu button DESELECT pressed*");
-            Audio.PlaySound(SOUND_DESELECT, 5);
+            Audio.PlaySound(SOUND_DESELECT, 15);
         }
 
         public void OnExit()
         {
             Console.WriteLine("*Event: Menu button EXIT pressed*");
-            Audio.PlaySound(SOUND_EXIT, 3);
+            Audio.PlaySound(SOUND_EXIT, 20);
         }
     }
 }

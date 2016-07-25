@@ -12,9 +12,9 @@ namespace _15_EventQueue
         {
             Menu menu = new Menu();
 
-            menu.OnStart();
-            menu.OnStart();
-            menu.OnStart();
+            menu.OnStart(1);
+            menu.OnStart(2);
+            menu.OnStart(3);
             Audio.Update();
             menu.OnDeselect();
             Audio.Update();

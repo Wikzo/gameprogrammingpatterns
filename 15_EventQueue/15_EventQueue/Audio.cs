@@ -36,6 +36,10 @@ namespace _15_EventQueue
 
         public static void PlaySound(int soundID, int volume)
         {
+            // aggregate similar sound files (so they don't play simontainsly with loud volume)
+            // walk the pending requests
+            if (AggregateRequests(soundID, volume)) return;
+
             // makes sure there is room to queue a new sound
             // using a ring buffer, the tail wraps around to the beginning of the array when it reaches the end
             Debug.Assert((_tail + 1)%MAX_PENDING != _head);
@@ -43,6 +47,22 @@ namespace _15_EventQueue
             _pending[_tail].Id = soundID;
             _pending[_tail].Volume = volume;
             _tail = (_tail + 1)%MAX_PENDING;
+        }
+
+        private static bool AggregateRequests(int soundID, int volume)
+        {
+            for (int i = _head; i != _tail; i = (i + 1)%MAX_PENDING)
+            {
+                if (_pending[i].Id == soundID)
+                {
+                    // use the larger of the two volumes
+                    _pending[i].Volume = Math.Max(volume, _pending[i].Volume);
+
+                    // don't need to enqueue
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static void Update()
