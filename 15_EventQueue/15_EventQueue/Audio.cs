@@ -47,15 +47,20 @@ namespace _15_EventQueue
 
         public static void Update()
         {
+            // should realistically be called using an update loop (60 FPS)
+
             Console.WriteLine("Audio Update() loop called");
 
-            if (_head == _tail)
-                return;
+            for (int i = 0; i < MAX_PENDING; i++)
+            {
+                if (_head == _tail)
+                    return;
 
-            LoadResources(_head);
-            StartSound(_pending[_head].Id, 1, _pending[_head].Volume);
+                LoadResources(_head);
+                StartSound(_pending[_head].Id, 1, _pending[_head].Volume);
 
-            _head = (_head + 1)%MAX_PENDING;
+                _head = (_head + 1) % MAX_PENDING;
+            }
         }
 
         private static void StartSound(int ressource, int channel, int volume)
