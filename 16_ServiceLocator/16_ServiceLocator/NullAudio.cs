@@ -10,17 +10,17 @@ namespace _16_ServiceLocator
     {
         public void PlaySound(int soundID)
         {
-            Console.WriteLine("Null object used");
+            Console.WriteLine("NO AUDIO - Null object used to play audio");
         }
 
         public void StopSound(int soundID)
         {
-            Console.WriteLine("Null object used");
+            Console.WriteLine("NO AUDIO - Null object used to stop audio");
         }
 
         public void StopAllSounds()
         {
-            Console.WriteLine("Null object used");
+            Console.WriteLine("NO AUDIO - Null object used to stop all sounds");
         }
     }
 }

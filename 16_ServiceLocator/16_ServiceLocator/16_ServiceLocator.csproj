@@ -46,6 +46,8 @@
     <Compile Include="ConsoleAudio.cs" />
     <Compile Include="IAudio.cs" />
     <Compile Include="Locator.cs" />
+    <Compile Include="LoggedAudio.cs" />
+    <Compile Include="NullAudio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
