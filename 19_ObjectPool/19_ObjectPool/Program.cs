@@ -10,6 +10,19 @@ namespace _19_ObjectPool
     {
         static void Main(string[] args)
         {
+            ParticlePool particlePool = new ParticlePool();
+
+            particlePool.Create(5,1,3,2,1);
+            particlePool.Create(5,1,3,2,6);
+            particlePool.Create(5,1,3,2,2);
+
+            particlePool.Animate();
+            particlePool.Animate();
+            particlePool.Animate();
+            particlePool.Animate();
+
+            Console.ReadLine();
+
         }
     }
 }

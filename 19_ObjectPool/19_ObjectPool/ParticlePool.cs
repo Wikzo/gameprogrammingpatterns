@@ -14,6 +14,10 @@ namespace _19_ObjectPool
         public ParticlePool()
         {
             _particles = new Particle[POOL_SIZE];
+            for (int i = 0; i < POOL_SIZE; i++)
+            {
+                _particles[i] = new Particle(i.ToString());
+            }
         }
 
         // only initializes new particles if there available slots left
