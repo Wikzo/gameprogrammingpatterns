@@ -23,6 +23,7 @@ namespace _19_ObjectPool
 
             Console.ReadLine();
 
+            // (I didn't test it with the ParticlePoolWithFreeList ...)
         }
     }
 }
