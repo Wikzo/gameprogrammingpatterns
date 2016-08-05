@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF67AE67-A516-496E-8CFB-43B195517A1A}</ProjectGuid>
+    <ProjectGuid>{A5D73C2A-CEAB-414C-B3E1-D9E02A88CDDB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_19_ObjectPool</RootNamespace>
-    <AssemblyName>19_ObjectPool</AssemblyName>
+    <RootNamespace>_20_SpatialPartition</RootNamespace>
+    <AssemblyName>20_SpatialPartition</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,10 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Particle.cs" />
-    <Compile Include="ParticlePoolWithFreeList.cs" />
-    <Compile Include="ParticleWithFreeList.cs" />
-    <Compile Include="ParticlePool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

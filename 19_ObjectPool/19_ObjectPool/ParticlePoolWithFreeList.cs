@@ -52,7 +52,12 @@ namespace _19_ObjectPool
         {
             for (int i = 0; i < POOL_SIZE; i++)
             {
-                _particlesFreeList[i].Animate();
+                if (_particlesFreeList[i].Animate())
+                {
+                    // add this particle to the front of the list
+                    _particlesFreeList[i].SetNext(_firstAvilable);
+                    _firstAvilable = _particlesFreeList[i];
+                }
             }
         }
     }
